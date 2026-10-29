@@ -28,7 +28,7 @@ Targets: native Linux Vulkan apps (emulators such as RetroArch, Dolphin, PCSX2) 
 
 ## Build
 
-Needs CMake >= 4.4 and GCC >= 16 (C++26). `RESHADE_SOURCE_DIR` (fork checkout, default `~/Documents/projects/reshade-linux-vulkan`) supplies the ReShade headers; `RESHADE_LIBRARY` (default `$RESHADE_SOURCE_DIR/build-linux/ReShade64.so`) is the fork's built library, which the add-on links against. Override either with `-D`.
+Needs CMake >= 4.4 and GCC >= 16 (C++26). `RESHADE_SOURCE_DIR` (fork checkout, default `../reshade` next to this repo) supplies the ReShade headers; `RESHADE_LIBRARY` (default `$RESHADE_SOURCE_DIR/build-linux/ReShade64.so`) is the fork's built library, which the add-on links against. Override either with `-D`.
 
 ```
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
@@ -52,7 +52,7 @@ The install step writes:
 - Engaged runs use `vkgears`, because `vkcube` 1.4.363 picks A2B10G10R10 on HDR surfaces and the add-on correctly steps aside for 10-bit formats. The step-aside run uses `vkcube --wsi xcb`.
 - The `wlnocm` run is `vkcube --wsi wayland` inside the same HDR gamescope, which offers no `wp_color_manager_v1`: it checks that the add-on notices and falls back to KWin/EDID values.
 - Requires `gamescope`, `mesa-utils` (`vkgears`) and `vulkan-tools` (`vkcube`).
-- Environment overrides: `FORK_BUILD`, `ADDON_BUILD`, `SHADER_SRC`, `ENGAGE_APP`.
+- Environment overrides: `FORK_SRC`, `FORK_BUILD`, `ADDON_BUILD`, `SHADER_SRC`, `ENGAGE_APP`.
 
 ## Per-game setup
 

@@ -4,7 +4,7 @@ set -eu
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 REPO=$(dirname "$SCRIPT_DIR")
-FORK_SRC=/home/jupiter/Documents/projects/reshade-linux-vulkan   # fork checkout, branch linux-vulkan
+FORK_SRC=${FORK_SRC:-$REPO/../reshade}   # fork checkout, branch linux-vulkan
 FORK_BUILD=${FORK_BUILD:-$FORK_SRC/build-linux}
 ADDON_BUILD=${ADDON_BUILD:-$REPO/build}
 SHADER_SRC=${SHADER_SRC:-$HOME/.local/share/reshade/reshade-shaders/Shaders}
