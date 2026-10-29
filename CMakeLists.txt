@@ -11,7 +11,7 @@ if(NOT CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_VERSION VERSIO
 	message(FATAL_ERROR "GCC >= 16 required, found ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
 endif()
 
-set(RESHADE_SOURCE_DIR "/home/jupiter/Documents/projects/reshade-linux-vulkan" CACHE PATH "ReShade fork checkout (branch linux-vulkan)")
+set(RESHADE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../reshade" CACHE PATH "ReShade fork checkout (branch linux-vulkan)")
 if(NOT EXISTS "${RESHADE_SOURCE_DIR}/include/reshade.hpp")
 	message(FATAL_ERROR "RESHADE_SOURCE_DIR does not contain include/reshade.hpp: ${RESHADE_SOURCE_DIR}")
 endif()
